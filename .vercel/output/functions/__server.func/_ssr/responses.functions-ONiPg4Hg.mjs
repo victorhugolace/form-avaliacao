@@ -1,7 +1,4 @@
-import { T as TSS_SERVER_FUNCTION, a as createServerFn, u as useSession } from "./server-CKT48O9-.mjs";
-import fs from "node:fs";
-import path from "node:path";
-import crypto from "node:crypto";
+import { T as TSS_SERVER_FUNCTION, a as createServerFn, u as useSession } from "./server-54mtEly1.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/react.mjs";
 import { o as objectType, s as stringType, e as enumType, b as booleanType, n as numberType, r as recordType } from "../_libs/zod.mjs";
@@ -38,38 +35,6 @@ const sessionConfig = {
 };
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
 const ADMIN_PASS = process.env.ADMIN_PASS || "123456";
-const DATA_DIR = path.resolve(process.cwd(), ".data");
-const DATA_FILE = path.join(DATA_DIR, "sigex_avaliacoes.json");
-function ensureLocalDataStore() {
-  try {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, {
-        recursive: true
-      });
-    }
-    if (!fs.existsSync(DATA_FILE)) {
-      fs.writeFileSync(DATA_FILE, JSON.stringify([]), "utf-8");
-      return [];
-    }
-    const content = fs.readFileSync(DATA_FILE, "utf-8");
-    return JSON.parse(content);
-  } catch (err) {
-    console.error("Local data store error:", err);
-    return [];
-  }
-}
-function saveLocalDataStore(items) {
-  try {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, {
-        recursive: true
-      });
-    }
-    fs.writeFileSync(DATA_FILE, JSON.stringify(items, null, 2), "utf-8");
-  } catch (err) {
-    console.error("Error writing to local data store:", err);
-  }
-}
 const sigexTaskAnswerSchema = objectType({
   status: enumType(["S", "Parcial", "N", ""]),
   observacoes: stringType().default("")
@@ -115,7 +80,7 @@ const saveResponse = createServerFn({
     try {
       const {
         supabaseAdmin
-      } = await import("./client.server-D5ro3rAQ.mjs");
+      } = await import("./client.server-D-aV4af-.mjs");
       const payload = {
         avaliador_nome: data.avaliador_nome,
         data_avaliacao: data.data_avaliacao,
@@ -155,6 +120,10 @@ const saveResponse = createServerFn({
       console.warn("Supabase save failed, falling back to local store:", e.message);
     }
   }
+  const {
+    ensureLocalDataStore,
+    saveLocalDataStore
+  } = await import("./local-store.server-DbtGGPsz.mjs");
   const items = ensureLocalDataStore();
   const existingIndex = items.findIndex((item) => item.id === id);
   const record = {
@@ -190,7 +159,7 @@ const getResponseById = createServerFn({
     try {
       const {
         supabaseAdmin
-      } = await import("./client.server-D5ro3rAQ.mjs");
+      } = await import("./client.server-D-aV4af-.mjs");
       const {
         data: row,
         error
@@ -201,6 +170,9 @@ const getResponseById = createServerFn({
     } catch {
     }
   }
+  const {
+    ensureLocalDataStore
+  } = await import("./local-store.server-DbtGGPsz.mjs");
   const items = ensureLocalDataStore();
   const found = items.find((item) => item.id === data.id);
   return found ?? null;
@@ -271,7 +243,7 @@ const adminListResponses = createServerFn({
     try {
       const {
         supabaseAdmin
-      } = await import("./client.server-D5ro3rAQ.mjs");
+      } = await import("./client.server-D-aV4af-.mjs");
       const {
         data,
         error
@@ -284,6 +256,9 @@ const adminListResponses = createServerFn({
     } catch {
     }
   }
+  const {
+    ensureLocalDataStore
+  } = await import("./local-store.server-DbtGGPsz.mjs");
   const items = ensureLocalDataStore();
   return items.sort((a, b) => {
     const da = a.created_at ? new Date(a.created_at).getTime() : 0;
@@ -310,7 +285,7 @@ const adminGetResponse = createServerFn({
     try {
       const {
         supabaseAdmin
-      } = await import("./client.server-D5ro3rAQ.mjs");
+      } = await import("./client.server-D-aV4af-.mjs");
       const {
         data: row,
         error
@@ -321,6 +296,9 @@ const adminGetResponse = createServerFn({
     } catch {
     }
   }
+  const {
+    ensureLocalDataStore
+  } = await import("./local-store.server-DbtGGPsz.mjs");
   const items = ensureLocalDataStore();
   const found = items.find((item) => item.id === data.id);
   return found ?? null;

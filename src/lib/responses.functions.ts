@@ -1,9 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { useSession } from "@tanstack/react-start/server";
 import { z } from "zod";
-import fs from "node:fs";
-import path from "node:path";
-import crypto from "node:crypto";
 import type { SigexEvaluationData } from "./sigex.constants";
 
 const SESSION_PASSWORD =
@@ -20,38 +17,6 @@ type AdminSession = { isAdmin?: boolean };
 
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
 const ADMIN_PASS = process.env.ADMIN_PASS || "123456";
-
-// File storage fallback directory
-const DATA_DIR = path.resolve(process.cwd(), ".data");
-const DATA_FILE = path.join(DATA_DIR, "sigex_avaliacoes.json");
-
-function ensureLocalDataStore(): SigexEvaluationData[] {
-  try {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
-    }
-    if (!fs.existsSync(DATA_FILE)) {
-      fs.writeFileSync(DATA_FILE, JSON.stringify([]), "utf-8");
-      return [];
-    }
-    const content = fs.readFileSync(DATA_FILE, "utf-8");
-    return JSON.parse(content) as SigexEvaluationData[];
-  } catch (err) {
-    console.error("Local data store error:", err);
-    return [];
-  }
-}
-
-function saveLocalDataStore(items: SigexEvaluationData[]) {
-  try {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
-    }
-    fs.writeFileSync(DATA_FILE, JSON.stringify(items, null, 2), "utf-8");
-  } catch (err) {
-    console.error("Error writing to local data store:", err);
-  }
-}
 
 const sigexTaskAnswerSchema = z.object({
   status: z.enum(["S", "Parcial", "N", ""]),
@@ -134,7 +99,8 @@ export const saveResponse = createServerFn({ method: "POST" })
       }
     }
 
-    // Fallback: Local JSON persistence
+    // Fallback: Local JSON persistence via server module
+    const { ensureLocalDataStore, saveLocalDataStore } = await import("./local-store.server");
     const items = ensureLocalDataStore();
     const existingIndex = items.findIndex((item) => item.id === id);
 
@@ -179,6 +145,7 @@ export const getResponseById = createServerFn({ method: "POST" })
       }
     }
 
+    const { ensureLocalDataStore } = await import("./local-store.server");
     const items = ensureLocalDataStore();
     const found = items.find((item) => item.id === data.id);
     return found ?? null;
@@ -232,6 +199,7 @@ export const adminListResponses = createServerFn({ method: "GET" }).handler(asyn
     }
   }
 
+  const { ensureLocalDataStore } = await import("./local-store.server");
   const items = ensureLocalDataStore();
   return items.sort((a, b) => {
     const da = a.created_at ? new Date(a.created_at).getTime() : 0;
@@ -267,6 +235,7 @@ export const adminGetResponse = createServerFn({ method: "POST" })
       }
     }
 
+    const { ensureLocalDataStore } = await import("./local-store.server");
     const items = ensureLocalDataStore();
     const found = items.find((item) => item.id === data.id);
     return found ?? null;

@@ -93,9 +93,8 @@ function ResponseDetail() {
                 </span>
                 <span>·</span>
                 <span
-                  className={`font-semibold ${
-                    evaluation.completed ? "text-emerald-700" : "text-amber-700"
-                  }`}
+                  className={`font-semibold ${evaluation.completed ? "text-emerald-700" : "text-amber-700"
+                    }`}
                 >
                   {evaluation.completed ? "Status: Concluída" : `Status: Em andamento`}
                 </span>

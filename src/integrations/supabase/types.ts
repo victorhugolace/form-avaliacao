@@ -71,6 +71,45 @@ export type Database = {
         }
         Relationships: []
       }
+      sigex_avaliacoes: {
+        Row: {
+          avaliacao_geral: Json
+          avaliador_nome: string
+          comentarios: Json
+          completed: boolean
+          created_at: string
+          current_step: number
+          data_avaliacao: string
+          id: string
+          tarefas: Json
+          updated_at: string
+        }
+        Insert: {
+          avaliacao_geral?: Json
+          avaliador_nome: string
+          comentarios?: Json
+          completed?: boolean
+          created_at?: string
+          current_step?: number
+          data_avaliacao: string
+          id?: string
+          tarefas?: Json
+          updated_at?: string
+        }
+        Update: {
+          avaliacao_geral?: Json
+          avaliador_nome?: string
+          comentarios?: Json
+          completed?: boolean
+          created_at?: string
+          current_step?: number
+          data_avaliacao?: string
+          id?: string
+          tarefas?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

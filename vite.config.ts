@@ -15,6 +15,9 @@ export default defineConfig({
     tsconfigPaths(),
     nitro({
       preset: "vercel",
+      externals: {
+        inline: ["tslib"],
+      },
     }),
   ],
 });
