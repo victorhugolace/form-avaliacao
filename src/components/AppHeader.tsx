@@ -41,7 +41,7 @@ export function AppHeader() {
                 </span>
               </div>
               <div className="text-[11px] text-slate-400 font-medium">
-                Roteiro de Avaliação do Sistema
+                Avaliação do Sistema
               </div>
             </div>
           </Link>
