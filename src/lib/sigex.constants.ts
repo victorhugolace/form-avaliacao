@@ -102,6 +102,14 @@ export interface SigexEvaluationData {
   updated_at?: string;
 }
 
+export function getLocalTodayDate(): string {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 export function getInitialEvaluation(): SigexEvaluationData {
   const initialTarefas: Record<string, SigexTaskAnswer> = {};
   for (const t of SIGEX_TASKS) {
@@ -113,11 +121,9 @@ export function getInitialEvaluation(): SigexEvaluationData {
     initialLikert[String(q.id)] = 0;
   }
 
-  const today = new Date().toISOString().split("T")[0];
-
   return {
     avaliador_nome: "",
-    data_avaliacao: today,
+    data_avaliacao: getLocalTodayDate(),
     tarefas: initialTarefas,
     avaliacao_geral: initialLikert,
     comentarios: {

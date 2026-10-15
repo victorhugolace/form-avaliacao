@@ -1,8 +1,8 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { u as useServerFn, i as getInitialEvaluation, S as SIGEX_TASKS, L as LIKERT_QUESTIONS, A as AppHeader, C as Card, g as generateSigexPdf, B as Button, c as LIKERT_LABELS, d as COMMENT_QUESTIONS, h as cn, s as saveResponse, j as getResponseById } from "./sigex.pdf-CpdSBtOW.mjs";
+import { u as useServerFn, i as getInitialEvaluation, j as getLocalTodayDate, S as SIGEX_TASKS, L as LIKERT_QUESTIONS, A as AppHeader, C as Card, g as generateSigexPdf, B as Button, c as LIKERT_LABELS, d as COMMENT_QUESTIONS, h as cn, s as saveResponse, k as getResponseById } from "./sigex.pdf-vRpT2Wqn.mjs";
 import { t as toast } from "../_libs/sonner.mjs";
-import { T as Toaster, L as Label, I as Input } from "./sonner-CYUgfJMQ.mjs";
+import { T as Toaster, L as Label, I as Input } from "./sonner-7c8zuuha.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/jspdf.mjs";
 import { g as CircleAlert, B as BookOpen, E as ExternalLink, h as Clock, i as Check, j as ChevronLeft, D as Download, k as ChevronRight, a as CircleCheck, F as FileSpreadsheet, R as RotateCcw, T as TriangleAlert, b as CircleX, M as MessageSquare, l as Sparkles } from "../_libs/lucide-react.mjs";
@@ -18,12 +18,12 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-import "./server-CDMgFY0I.mjs";
+import "./server-CPokh5j1.mjs";
 import "node:async_hooks";
 import "../_libs/h3-v2.mjs";
 import "../_libs/rou3.mjs";
 import "../_libs/srvx.mjs";
-import "./router-B4S88Deo.mjs";
+import "./router-DTmmB6t6.mjs";
 import "../_libs/tanstack__query-core.mjs";
 import "../_libs/tanstack__react-query.mjs";
 import "../_libs/radix-ui__react-slot.mjs";
@@ -86,6 +86,7 @@ function SigexFormPage() {
           setState((prev) => ({
             ...prev,
             ...parsed,
+            data_avaliacao: getLocalTodayDate(),
             tarefas: {
               ...prev.tarefas,
               ...parsed.tarefas || {}
@@ -103,6 +104,11 @@ function SigexFormPage() {
             setStep(parsed.current_step);
           }
         }
+      } else {
+        setState((prev) => ({
+          ...prev,
+          data_avaliacao: getLocalTodayDate()
+        }));
       }
     } catch {
       localStorage.removeItem(STORAGE_KEY);
@@ -343,7 +349,7 @@ function SigexFormPage() {
               "Data da Avaliação ",
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-emerald-400", children: "*" })
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Input, { id: "data_avaliacao", type: "date", value: state.data_avaliacao, onChange: (e) => updateField("data_avaliacao", e.target.value), className: "mt-1 bg-slate-900 border-slate-700 text-white placeholder:text-slate-500 focus-visible:ring-emerald-500" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Input, { id: "data_avaliacao", type: "date", value: state.data_avaliacao || getLocalTodayDate(), onChange: (e) => updateField("data_avaliacao", e.target.value), className: "mt-1 bg-slate-900 border-slate-700 text-white placeholder:text-slate-500 focus-visible:ring-emerald-500" })
           ] })
         ] })
       ] }),

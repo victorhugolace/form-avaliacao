@@ -1,8 +1,8 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { u as useRouter, L as Link } from "../_libs/tanstack__react-router.mjs";
 import { m as isRedirect } from "../_libs/tanstack__router-core.mjs";
-import { a as createServerFn, T as TSS_SERVER_FUNCTION, g as getServerFnById } from "./server-CDMgFY0I.mjs";
-import { t as tjpbLogo } from "./router-B4S88Deo.mjs";
+import { a as createServerFn, T as TSS_SERVER_FUNCTION, g as getServerFnById } from "./server-CPokh5j1.mjs";
+import { t as tjpbLogo } from "./router-DTmmB6t6.mjs";
 import { S as Slot } from "../_libs/radix-ui__react-slot.mjs";
 import { c as cva } from "../_libs/class-variance-authority.mjs";
 import { c as clsx } from "../_libs/clsx.mjs";
@@ -302,6 +302,13 @@ const COMMENT_QUESTIONS = [
     placeholder: "Sugestões de melhoria, elogios ou considerações gerais..."
   }
 ];
+function getLocalTodayDate() {
+  const now = /* @__PURE__ */ new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
 function getInitialEvaluation() {
   const initialTarefas = {};
   for (const t of SIGEX_TASKS) {
@@ -311,10 +318,9 @@ function getInitialEvaluation() {
   for (const q of LIKERT_QUESTIONS) {
     initialLikert[String(q.id)] = 0;
   }
-  const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
   return {
     avaliador_nome: "",
-    data_avaliacao: today,
+    data_avaliacao: getLocalTodayDate(),
     tarefas: initialTarefas,
     avaliacao_geral: initialLikert,
     comentarios: {
@@ -579,8 +585,9 @@ export {
   generateSigexPdf as g,
   cn as h,
   getInitialEvaluation as i,
-  getResponseById as j,
-  adminGetResponse as k,
+  getLocalTodayDate as j,
+  getResponseById as k,
+  adminGetResponse as l,
   saveResponse as s,
   useServerFn as u
 };

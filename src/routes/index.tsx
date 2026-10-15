@@ -36,6 +36,7 @@ import {
   LIKERT_LABELS,
   COMMENT_QUESTIONS,
   getInitialEvaluation,
+  getLocalTodayDate,
   type SigexEvaluationData,
   type TaskStatus,
 } from "@/lib/sigex.constants";
@@ -76,6 +77,7 @@ function SigexFormPage() {
           setState((prev) => ({
             ...prev,
             ...parsed,
+            data_avaliacao: getLocalTodayDate(),
             tarefas: { ...prev.tarefas, ...(parsed.tarefas || {}) },
             avaliacao_geral: { ...prev.avaliacao_geral, ...(parsed.avaliacao_geral || {}) },
             comentarios: { ...prev.comentarios, ...(parsed.comentarios || {}) },
@@ -84,6 +86,8 @@ function SigexFormPage() {
             setStep(parsed.current_step);
           }
         }
+      } else {
+        setState((prev) => ({ ...prev, data_avaliacao: getLocalTodayDate() }));
       }
     } catch {
       localStorage.removeItem(STORAGE_KEY);
@@ -355,7 +359,7 @@ function SigexFormPage() {
               <Input
                 id="data_avaliacao"
                 type="date"
-                value={state.data_avaliacao}
+                value={state.data_avaliacao || getLocalTodayDate()}
                 onChange={(e) => updateField("data_avaliacao", e.target.value)}
                 className="mt-1 bg-slate-900 border-slate-700 text-white placeholder:text-slate-500 focus-visible:ring-emerald-500"
               />
