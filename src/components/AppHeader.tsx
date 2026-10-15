@@ -55,7 +55,7 @@ export function AppHeader() {
               className="text-slate-300 hover:text-white hover:bg-slate-800 text-xs gap-1.5 hidden md:inline-flex"
             >
               <ClipboardCheck className="h-3.5 w-3.5" />
-              Novo Roteiro
+              Nova Avaliação
             </Button>
           </Link>
 

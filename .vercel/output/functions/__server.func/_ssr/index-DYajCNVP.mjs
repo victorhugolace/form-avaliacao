@@ -1,8 +1,8 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { u as useServerFn, i as getInitialEvaluation, S as SIGEX_TASKS, L as LIKERT_QUESTIONS, A as AppHeader, C as Card, g as generateSigexPdf, B as Button, c as LIKERT_LABELS, d as COMMENT_QUESTIONS, h as cn, s as saveResponse, j as getResponseById } from "./sigex.pdf-DdN_dIYl.mjs";
+import { u as useServerFn, i as getInitialEvaluation, S as SIGEX_TASKS, L as LIKERT_QUESTIONS, A as AppHeader, C as Card, g as generateSigexPdf, B as Button, c as LIKERT_LABELS, d as COMMENT_QUESTIONS, h as cn, s as saveResponse, j as getResponseById } from "./sigex.pdf-Bwiybpvo.mjs";
 import { t as toast } from "../_libs/sonner.mjs";
-import { T as Toaster, L as Label, I as Input } from "./sonner-Ds68pDRs.mjs";
+import { T as Toaster, L as Label, I as Input } from "./sonner-BKXzPP6m.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/jspdf.mjs";
 import { g as CircleAlert, B as BookOpen, h as Clock, i as Check, j as ChevronLeft, D as Download, k as ChevronRight, a as CircleCheck, F as FileSpreadsheet, R as RotateCcw, T as TriangleAlert, b as CircleX, M as MessageSquare, l as Sparkles } from "../_libs/lucide-react.mjs";
@@ -18,12 +18,12 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-import "./server-54mtEly1.mjs";
+import "./server-BhhT1TRu.mjs";
 import "node:async_hooks";
 import "../_libs/h3-v2.mjs";
 import "../_libs/rou3.mjs";
 import "../_libs/srvx.mjs";
-import "./router-CgBj8XiU.mjs";
+import "./router-Bpt5C6h6.mjs";
 import "../_libs/tanstack__query-core.mjs";
 import "../_libs/tanstack__react-query.mjs";
 import "../_libs/radix-ui__react-slot.mjs";
@@ -263,7 +263,7 @@ function SigexFormPage() {
     if (typeof window !== "undefined") {
       localStorage.removeItem(STORAGE_KEY);
     }
-    toast.success("Roteiro de avaliação finalizado e salvo com sucesso!");
+    toast.success("Avaliação finalizada e salva com sucesso!");
     window.scrollTo({
       top: 0,
       behavior: "smooth"
@@ -294,7 +294,7 @@ function SigexFormPage() {
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "mt-3 text-2xl md:text-3xl font-extrabold tracking-tight", children: [
             "SIGEX MVP — ",
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-emerald-400", children: "Roteiro de Avaliação" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-emerald-400", children: "Avaliação do Sistema" })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-2 text-sm text-slate-300 max-w-2xl leading-relaxed", children: "Este instrumento avalia a usabilidade e a aderência das funcionalidades do Sistema de Gestão da Execução Contratual (SIGEX). Realize as tarefas no sistema e registre suas impressões." })
         ] }) }),

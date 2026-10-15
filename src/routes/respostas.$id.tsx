@@ -82,7 +82,7 @@ function ResponseDetail() {
           <Card className="p-6 md:p-8 space-y-8 bg-white border-slate-200 shadow-sm">
             <header className="border-b border-slate-100 pb-5">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-600">
-                SIGEX MVP · Roteiro de Avaliação
+                SIGEX MVP · Avaliação do Sistema
               </div>
               <h1 className="mt-1 text-2xl font-bold text-slate-900">
                 {evaluation.avaliador_nome || "(Avaliador não informado)"}

@@ -27,7 +27,7 @@ export function generateSigexPdf(data: SigexEvaluationData) {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(18);
   doc.setTextColor(20, 60, 80);
-  doc.text("SIGEX MVP — Roteiro de avaliação", margin, y);
+  doc.text("SIGEX MVP — Avaliação do Sistema", margin, y);
 
   // Linha separadora abaixo do título
   y += 12;
@@ -329,5 +329,5 @@ export function generateSigexPdf(data: SigexEvaluationData) {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-zA-Z0-9_-]/g, "_");
 
-  doc.save(`SIGEX_MVP_Roteiro_Avaliacao_${safeName}.pdf`);
+  doc.save(`SIGEX_MVP_Avaliacao_${safeName}.pdf`);
 }

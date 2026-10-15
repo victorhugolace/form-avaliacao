@@ -42,7 +42,7 @@ import { generateSigexPdf } from "@/lib/sigex.pdf";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SIGEX MVP — Roteiro de Avaliação" },
+      { title: "SIGEX MVP — Avaliação do Sistema" },
       {
         name: "description",
         content: "Formulário oficial de avaliação de tarefas e usabilidade do SIGEX MVP.",
@@ -248,7 +248,7 @@ function SigexFormPage() {
     if (typeof window !== "undefined") {
       localStorage.removeItem(STORAGE_KEY);
     }
-    toast.success("Roteiro de avaliação finalizado e salvo com sucesso!");
+    toast.success("Avaliação finalizada e salva com sucesso!");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -292,7 +292,7 @@ function SigexFormPage() {
                 <span className="text-xs text-slate-400">Tempo estimado: 40 a 60 min</span>
               </div>
               <h1 className="mt-3 text-2xl md:text-3xl font-extrabold tracking-tight">
-                SIGEX MVP — <span className="text-emerald-400">Roteiro de Avaliação</span>
+                SIGEX MVP — <span className="text-emerald-400">Avaliação do Sistema</span>
               </h1>
               <p className="mt-2 text-sm text-slate-300 max-w-2xl leading-relaxed">
                 Este instrumento avalia a usabilidade e a aderência das funcionalidades do

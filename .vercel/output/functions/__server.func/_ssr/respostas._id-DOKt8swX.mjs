@@ -1,8 +1,8 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { d as useNavigate, L as Link } from "../_libs/tanstack__react-router.mjs";
-import { u as useServerFn, A as AppHeader, B as Button, g as generateSigexPdf, C as Card, S as SIGEX_TASKS, L as LIKERT_QUESTIONS, c as LIKERT_LABELS, d as COMMENT_QUESTIONS, f as adminMe, k as adminGetResponse } from "./sigex.pdf-DdN_dIYl.mjs";
+import { u as useServerFn, A as AppHeader, B as Button, g as generateSigexPdf, C as Card, S as SIGEX_TASKS, L as LIKERT_QUESTIONS, c as LIKERT_LABELS, d as COMMENT_QUESTIONS, f as adminMe, k as adminGetResponse } from "./sigex.pdf-Bwiybpvo.mjs";
 import { u as useQuery } from "../_libs/tanstack__react-query.mjs";
-import { R as Route } from "./router-CgBj8XiU.mjs";
+import { R as Route } from "./router-Bpt5C6h6.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/jspdf.mjs";
 import { j as ChevronLeft, D as Download, C as Calendar, a as CircleCheck, T as TriangleAlert, b as CircleX } from "../_libs/lucide-react.mjs";
@@ -18,7 +18,7 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-import "./server-54mtEly1.mjs";
+import "./server-BhhT1TRu.mjs";
 import "node:async_hooks";
 import "../_libs/h3-v2.mjs";
 import "../_libs/rou3.mjs";
@@ -94,7 +94,7 @@ function ResponseDetail() {
         error.message
       ] }) : !evaluation ? /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "p-8 text-center text-slate-500", children: "Avaliação não encontrada." }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Card, { className: "p-6 md:p-8 space-y-8 bg-white border-slate-200 shadow-sm", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: "border-b border-slate-100 pb-5", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-600", children: "SIGEX MVP · Roteiro de Avaliação" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-emerald-600", children: "SIGEX MVP · Avaliação do Sistema" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "mt-1 text-2xl font-bold text-slate-900", children: evaluation.avaliador_nome || "(Avaliador não informado)" }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-2 flex flex-wrap items-center gap-3 text-xs text-slate-500", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "flex items-center gap-1", children: [

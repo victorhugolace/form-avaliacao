@@ -66,11 +66,11 @@ const Route$3 = createRootRouteWithContext()({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SIGEX MVP — Roteiro de Avaliação" },
-      { name: "description", content: "Roteiro de avaliação do MVP do SIGEX — Sistema de Gestão da Execução Contratual." },
+      { title: "SIGEX MVP — Avaliação do Sistema" },
+      { name: "description", content: "Avaliação do MVP do SIGEX — Sistema de Gestão da Execução Contratual." },
       { name: "author", content: "TJPB · LYNO" },
-      { property: "og:title", content: "SIGEX MVP — Roteiro de Avaliação" },
-      { property: "og:description", content: "Roteiro oficial de avaliação e usabilidade do MVP do SIGEX." },
+      { property: "og:title", content: "SIGEX MVP — Avaliação do Sistema" },
+      { property: "og:description", content: "Avaliação oficial de usabilidade do MVP do SIGEX." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" }
     ],
@@ -104,7 +104,7 @@ function RootComponent() {
   const { queryClient } = Route$3.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter$2 = () => import("./respostas-DFcSD5Qn.mjs");
+const $$splitComponentImporter$2 = () => import("./respostas-h_zPqLLg.mjs");
 const Route$2 = createFileRoute("/respostas")({
   ssr: false,
   head: () => ({
@@ -114,11 +114,11 @@ const Route$2 = createFileRoute("/respostas")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./index-o5r0gtcB.mjs");
+const $$splitComponentImporter$1 = () => import("./index-DYajCNVP.mjs");
 const Route$1 = createFileRoute("/")({
   head: () => ({
     meta: [{
-      title: "SIGEX MVP — Roteiro de Avaliação"
+      title: "SIGEX MVP — Avaliação do Sistema"
     }, {
       name: "description",
       content: "Formulário oficial de avaliação de tarefas e usabilidade do SIGEX MVP."
@@ -126,7 +126,7 @@ const Route$1 = createFileRoute("/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./respostas._id-CqvX8lNF.mjs");
+const $$splitComponentImporter = () => import("./respostas._id-DOKt8swX.mjs");
 const Route = createFileRoute("/respostas/$id")({
   ssr: false,
   head: () => ({

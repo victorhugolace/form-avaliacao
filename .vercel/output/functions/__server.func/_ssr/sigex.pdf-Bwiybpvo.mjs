@@ -1,8 +1,8 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { u as useRouter, L as Link } from "../_libs/tanstack__react-router.mjs";
 import { m as isRedirect } from "../_libs/tanstack__router-core.mjs";
-import { a as createServerFn, T as TSS_SERVER_FUNCTION, g as getServerFnById } from "./server-54mtEly1.mjs";
-import { t as tjpbLogo } from "./router-CgBj8XiU.mjs";
+import { a as createServerFn, T as TSS_SERVER_FUNCTION, g as getServerFnById } from "./server-BhhT1TRu.mjs";
+import { t as tjpbLogo } from "./router-Bpt5C6h6.mjs";
 import { S as Slot } from "../_libs/radix-ui__react-slot.mjs";
 import { c as cva } from "../_libs/class-variance-authority.mjs";
 import { c as clsx } from "../_libs/clsx.mjs";
@@ -166,7 +166,7 @@ function AppHeader() {
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-base font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors", children: "SIGEX" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-semibold text-emerald-300 border border-emerald-500/30", children: "MVP" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-[11px] text-slate-400 font-medium", children: "Roteiro de Avaliação do Sistema" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-[11px] text-slate-400 font-medium", children: "Avaliação do Sistema" })
         ] })
       ] })
     ] }),
@@ -179,7 +179,7 @@ function AppHeader() {
           className: "text-slate-300 hover:text-white hover:bg-slate-800 text-xs gap-1.5 hidden md:inline-flex",
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(ClipboardCheck, { className: "h-3.5 w-3.5" }),
-            "Novo Roteiro"
+            "Nova Avaliação"
           ]
         }
       ) }),
@@ -343,7 +343,7 @@ function generateSigexPdf(data) {
   doc.setFont("helvetica", "bold");
   doc.setFontSize(18);
   doc.setTextColor(20, 60, 80);
-  doc.text("SIGEX MVP — Roteiro de avaliação", margin, y);
+  doc.text("SIGEX MVP — Avaliação do Sistema", margin, y);
   y += 12;
   doc.setDrawColor(20, 60, 80);
   doc.setLineWidth(1.5);
@@ -562,7 +562,7 @@ function generateSigexPdf(data) {
     y += boxH + 10;
   }
   const safeName = (data.avaliador_nome || "avaliacao").slice(0, 30).normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9_-]/g, "_");
-  doc.save(`SIGEX_MVP_Roteiro_Avaliacao_${safeName}.pdf`);
+  doc.save(`SIGEX_MVP_Avaliacao_${safeName}.pdf`);
 }
 export {
   AppHeader as A,
