@@ -27,7 +27,9 @@ import {
   Sparkles,
   FileSpreadsheet,
   RotateCcw,
+  ExternalLink,
 } from "lucide-react";
+import manualPdf from "@/assets/manual-usuario-mvp.pdf?url";
 import {
   SIGEX_TASKS,
   LIKERT_QUESTIONS,
@@ -311,7 +313,19 @@ function SigexFormPage() {
             </div>
             <div className="flex items-center gap-2.5 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700/50">
               <BookOpen className="h-4 w-4 text-emerald-400 shrink-0" />
-              <span>Consulte o <strong>MANUAL_USUARIO_MVP</strong> quando precisar.</span>
+              <span>
+                Consulte o <strong>MANUAL_USUARIO_MVP</strong> quando precisar,{" "}
+                <a
+                  href={manualPdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-emerald-400 underline hover:text-emerald-300 inline-flex items-center gap-0.5 transition-colors"
+                >
+                  clicando aqui
+                  <ExternalLink className="h-3 w-3 inline" />
+                </a>
+                .
+              </span>
             </div>
             <div className="flex items-center gap-2.5 bg-slate-800/60 p-2.5 rounded-lg border border-slate-700/50">
               <Clock className="h-4 w-4 text-cyan-400 shrink-0" />
@@ -366,20 +380,18 @@ function SigexFormPage() {
                     }}
                   >
                     <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold transition-all shadow-sm ${
-                        isActive
+                      className={`flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold transition-all shadow-sm ${isActive
                           ? "bg-slate-900 text-white ring-4 ring-emerald-500/30 scale-105"
                           : isPassed
-                          ? "bg-emerald-600 text-white"
-                          : "bg-white text-slate-400 border border-slate-200"
-                      }`}
+                            ? "bg-emerald-600 text-white"
+                            : "bg-white text-slate-400 border border-slate-200"
+                        }`}
                     >
                       {isPassed ? <Check className="h-5 w-5" /> : stepNum}
                     </div>
                     <span
-                      className={`mt-2 text-xs text-center font-medium max-w-[130px] hidden sm:block ${
-                        isActive ? "text-slate-900 font-semibold" : "text-slate-500"
-                      }`}
+                      className={`mt-2 text-xs text-center font-medium max-w-[130px] hidden sm:block ${isActive ? "text-slate-900 font-semibold" : "text-slate-500"
+                        }`}
                     >
                       {lbl}
                     </span>
@@ -512,7 +524,7 @@ function StepTasks({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
         <div>
           <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-            Tarefas do Roteiro
+            Tarefas do Sistema
             <span className="text-sm font-normal text-slate-500">
               (Total de 18 tarefas)
             </span>
@@ -547,11 +559,10 @@ function StepTasks({
           <button
             key={f.id}
             onClick={() => setActiveFilter(f.id)}
-            className={`rounded-full px-3 py-1 text-xs font-medium transition-all ${
-              activeFilter === f.id
+            className={`rounded-full px-3 py-1 text-xs font-medium transition-all ${activeFilter === f.id
                 ? "bg-slate-900 text-white shadow-sm"
                 : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-            }`}
+              }`}
           >
             {f.label} ({f.count})
           </button>
@@ -579,15 +590,14 @@ function StepTasks({
           return (
             <div
               key={t.id}
-              className={`rounded-xl border p-4 transition-all ${
-                status === "S"
+              className={`rounded-xl border p-4 transition-all ${status === "S"
                   ? "border-emerald-200 bg-emerald-50/20"
                   : status === "Parcial"
-                  ? "border-amber-200 bg-amber-50/20"
-                  : status === "N"
-                  ? "border-rose-200 bg-rose-50/20"
-                  : "border-slate-200 hover:border-slate-300 bg-white"
-              }`}
+                    ? "border-amber-200 bg-amber-50/20"
+                    : status === "N"
+                      ? "border-rose-200 bg-rose-50/20"
+                      : "border-slate-200 hover:border-slate-300 bg-white"
+                }`}
             >
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                 {/* Task ID and Title */}
@@ -618,11 +628,10 @@ function StepTasks({
                   <button
                     type="button"
                     onClick={() => updateTask(t.id, "S")}
-                    className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
-                      status === "S"
+                    className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${status === "S"
                         ? "bg-emerald-600 text-white shadow-sm ring-2 ring-emerald-600/30"
                         : "bg-slate-100 text-slate-600 hover:bg-emerald-50 hover:text-emerald-700"
-                    }`}
+                      }`}
                   >
                     <CheckCircle2 className="h-3.5 w-3.5" />
                     Sim (S)
@@ -631,11 +640,10 @@ function StepTasks({
                   <button
                     type="button"
                     onClick={() => updateTask(t.id, "Parcial")}
-                    className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
-                      status === "Parcial"
+                    className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${status === "Parcial"
                         ? "bg-amber-600 text-white shadow-sm ring-2 ring-amber-600/30"
                         : "bg-slate-100 text-slate-600 hover:bg-amber-50 hover:text-amber-700"
-                    }`}
+                      }`}
                   >
                     <AlertTriangle className="h-3.5 w-3.5" />
                     Parcial
@@ -644,11 +652,10 @@ function StepTasks({
                   <button
                     type="button"
                     onClick={() => updateTask(t.id, "N")}
-                    className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${
-                      status === "N"
+                    className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-semibold transition-all ${status === "N"
                         ? "bg-rose-600 text-white shadow-sm ring-2 ring-rose-600/30"
                         : "bg-slate-100 text-slate-600 hover:bg-rose-50 hover:text-rose-700"
-                    }`}
+                      }`}
                   >
                     <XCircle className="h-3.5 w-3.5" />
                     Não (N)
@@ -724,11 +731,10 @@ function StepLikert({
           return (
             <div
               key={q.id}
-              className={`rounded-xl border p-5 transition-all ${
-                selected > 0
+              className={`rounded-xl border p-5 transition-all ${selected > 0
                   ? "border-slate-300 bg-slate-50/50"
                   : "border-slate-200 bg-white"
-              }`}
+                }`}
             >
               <div className="flex items-start gap-3 mb-4">
                 <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-900 text-xs font-bold text-white">
@@ -763,11 +769,10 @@ function StepLikert({
                       key={score}
                       type="button"
                       onClick={() => updateLikert(q.id, score)}
-                      className={`flex flex-col items-center justify-center rounded-xl border p-2.5 sm:p-3.5 transition-all ${
-                        isCur
+                      className={`flex flex-col items-center justify-center rounded-xl border p-2.5 sm:p-3.5 transition-all ${isCur
                           ? activeStyle
                           : "border-slate-200 bg-white hover:border-slate-300"
-                      }`}
+                        }`}
                     >
                       <span className="text-base sm:text-lg font-bold">{score}</span>
                       <span className="text-[10px] sm:text-xs text-center mt-1 font-medium opacity-90 hidden sm:block">

@@ -15,7 +15,7 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-const appCss = "/assets/styles-CFU-ShhW.css";
+const appCss = "/assets/styles-Cx6JK7ud.css";
 const tjpbLogo = "/assets/brasao-tjpb-9Y3YRU6z.png";
 function NotFoundComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
@@ -104,7 +104,7 @@ function RootComponent() {
   const { queryClient } = Route$3.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter$2 = () => import("./respostas-h_zPqLLg.mjs");
+const $$splitComponentImporter$2 = () => import("./respostas-DMhrOQ93.mjs");
 const Route$2 = createFileRoute("/respostas")({
   ssr: false,
   head: () => ({
@@ -114,7 +114,7 @@ const Route$2 = createFileRoute("/respostas")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./index-DYajCNVP.mjs");
+const $$splitComponentImporter$1 = () => import("./index-DLAvxrpL.mjs");
 const Route$1 = createFileRoute("/")({
   head: () => ({
     meta: [{
@@ -126,7 +126,7 @@ const Route$1 = createFileRoute("/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./respostas._id-DOKt8swX.mjs");
+const $$splitComponentImporter = () => import("./respostas._id-COq7X_br.mjs");
 const Route = createFileRoute("/respostas/$id")({
   ssr: false,
   head: () => ({
