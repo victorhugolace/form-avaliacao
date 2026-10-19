@@ -196,7 +196,7 @@ function SigexFormPage() {
       if (!state.data_avaliacao.trim()) {
         return "Por favor, informe a Data da avaliação.";
       }
-      if (stats.totalAnswered < 5) {
+      if (stats.totalAnswered < 4) {
         return `Você respondeu apenas ${stats.totalAnswered} de ${stats.totalTasks} tarefas. Recomendamos avaliar ao menos as tarefas pertinentes ao seu perfil antes de prosseguir.`;
       }
     }
